@@ -32,7 +32,7 @@ Following this, all transformations were removed, leaving only batch normalizati
 
 We applied the cross entropy loss function and stochastic gradient descent (SGD) optimizer in each of our training sessions. We also set a momentum value of 0.9 and a weight decay value of 0.0005 across all experiments.
 
-## Challanges 
+## Challenges 
 
 We used Kaggle notebook for training our models, but the limited computational resources and complex interface made the process difficult. We also attempted to train the model on our laptops, but experienced performance issues. 
 
