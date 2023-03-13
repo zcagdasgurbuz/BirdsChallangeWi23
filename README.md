@@ -15,7 +15,20 @@ We have been provided with a dataset comprising 38,561 images of 555 distinct bi
 
 ## Preprocessing and Augmentation
 
-We conducted a series of tests to evaluate the impact of different combinations of image transformations on the performance of the RESNET 18 model. These transformations included random cropping, flipping, rotation, Gaussian noise, color inversion, and color jitter. We aslo performed batch normalization. Our testing approach was identical to that used in [Tutorial 4 - Transfer Learning to Birds.ipynb.](https://colab.research.google.com/drive/1kHo8VT-onDxbtS3FM77VImG35h_K_Lav?usp=sharing). We used 20 percent of training data to measure the effects of the transforms. We didn't see significant accuracy increase with any of the transforms in first 10 epochs or so. We think the reason for that the features that differentiates the bird species are very suttle and the effects of random transformations would not be visible for long time.
+We conducted a series of tests to evaluate the impact of different combinations of image transformations on the performance of the RESNET 18 model. These transformations included random cropping, flipping, rotation, Gaussian noise, color inversion, and color jitter. We aslo performed batch normalization. Our testing approach was identical to that used in [Tutorial 4 - Transfer Learning to Birds.ipynb.](https://colab.research.google.com/drive/1kHo8VT-onDxbtS3FM77VImG35h_K_Lav?usp=sharing), except that we used 20% of the training data as validation to assess the effects of the transformations. No significant increase in accuracy was observed with any of the transformations in the first ten epochs or so. The underlying reason for this could be the subtle nature of the features that differentiate bird species, and the effects of random transformations may not be apparent until the model has been trained for a significantly higher number of epochs.
+
+#### Batch normalizations
+
+Initially, the RESNET 18 model's validation accuracy was approximately 58% when trained without batch normalization. Afterwards, we implemented batch normalization using the mean and standard deviation values recommended in the model documentation, resulting in a significant increase in accuracy to 67%.
 
 
-[Efficient Net Traning Notebook](https://www.kaggle.com/code/zeynelgurbuz/zeynel-efficientnet-v2/edit/run/121947778)
+## TRAINING and SCORES
+
+Initially, we trained the RESTNET 50 model using 80% of the data, resized to 256 by 256, as recommended in the documentation. Random crop, horizontal flip, color jitter, and adjust sharpness transformations were applied, in addition to batch normalization. For the first ten epochs, we used a learning rate of 0.01, which we reduced to 0.001 for five additional epochs. This approach yielded a score of 0.78 in the Kaggle competition. Subsequently, using the same approach, the EfficientNet v2 small model was trained, resulting in a score of 0.76.
+
+Following this, all transformations were removed, leaving only batch normalization, and the number of images was doubled by mirroring each one. We trained the EfficientNet v2 small model using 256 by 256 images for six epochs, with a learning rate of 0.01, followed by two more epochs with 0.001 learning rate using 384 by 384 images. 80% of the doubled data was used for training, with the remaining data reserved for validation. This approach yielded a score of 0.809 in the competition.
+
+
+[EfficientNet Traning Notebook](https://www.kaggle.com/code/zeynelgurbuz/zeynel-efficientnet-v2)
+
+[ResNet50 Training Notebook ](https://www.kaggle.com/code/sayujshahi/seventy8accuracy)
