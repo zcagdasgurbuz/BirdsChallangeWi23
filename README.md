@@ -9,16 +9,7 @@ Our objective is to develop a machine learning model capable of classifying 555 
 We have been provided with a dataset comprising 38,561 images of 555 distinct bird species to train our machine learning algorithm. Additionally, a separate subset of 10,000 images has been designated for testing without labels.
 
 #### Some Sample Images
-![ex1](/assets/imgs/ex1.jpg){:width="125"}
-![ex2](/assets/imgs/ex2.jpg){:width="125"}
-![ex3](/assets/imgs/ex3.jpg){:width="125"}
-![ex4](/assets/imgs/ex4.jpg){:width="125"}
-![ex5](/assets/imgs/ex5.jpg){:width="125"}
-![ex6](/assets/imgs/ex6.jpg){:width="125"}
-![ex7](/assets/imgs/ex7.jpg){:width="125"}
-![ex8](/assets/imgs/ex8.jpg){:width="125"}
-![ex9](/assets/imgs/ex9.jpg){:width="125"}
-![ex10](/assets/imgs/ex10.jpg){:width="125"}
+
 
 
 ## Preprocessing and Augmentation
